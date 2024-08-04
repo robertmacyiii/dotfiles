@@ -113,5 +113,17 @@ grepr() {
   grep -R $1 $2
 }
 
+gso() {
+  git status | grep '^\tmodified:' | head -n 1
+}
+
+gdo() {
+  git status | grep '^\tmodified:' | head -n 1 | git diff
+}
+
 # My repository specific paths
 hash -d pw=~/Repositories/personal-website
+
+setopt noclobber
+
+
